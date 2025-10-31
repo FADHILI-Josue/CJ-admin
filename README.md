@@ -30,7 +30,7 @@ A comprehensive management interface for Credit Jambo Ltd administrators to over
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/FADHILI-Josue/CJ-admin.git admin-app
    cd admin-app/frontend
    ```
 
