@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  admin-backend:
+    build: ./backend
+    container_name: admin_backend
+    ports:
+      - "5002:5002"
+    environment:
+      - DATABASE_URL=mysql://root:${MYSQL_ROOT_PASSWORD}@mysql-db:3306/credit_jambo
+      - JWT_SECRET=${ADMIN_JWT_SECRET}
+      - PASSWORD_SALT=${PASSWORD_SALT}
+      - PORT=5002
+    networks:
+      - credit-jambo-net
+
+  admin-frontend:
+    build: ./frontend
+    container_name: admin_frontend
+    ports:
+      - "3001:80"
+    networks:
+      - credit-jambo-net
+
+networks:
+  credit-jambo-net:
+    external: true
